@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى نور عيني مريومة - 11/11</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0714;
+            --card-bg: rgba(25, 14, 36, 0.75);
+            --card-border: rgba(230, 57, 70, 0.3);
+            --primary-red: #e63946;
+            --rose-gold: #e8a598;
+            --gold: #f4a261;
+            --text-light: #fefae0;
+            --accent-pink: #ff758f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(230, 57, 70, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(255, 117, 143, 0.15) 0%, transparent 40%);
+            background-attachment: fixed;
+            padding-bottom: 50px;
+        }
+
+        /* القلوب المتساقطة */
+        #hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart-particle {
+            position: absolute;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+            animation: fall linear infinite;
+            opacity: 0.7;
+            user-select: none;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* الهيدر والمقدمة */
+        header {
+            text-align: center;
+            padding: 40px 10px 20px;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-red), var(--accent-pink));
+            color: white;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 117, 143, 0.6);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .intro-text {
+            font-size: 1.35rem;
+            color: var(--rose-gold);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 2px;
+            width: 150px;
+            background: linear-gradient(90deg, transparent, var(--accent-pink), transparent);
+            margin: 30px auto;
+        }
+
+        /* الشبكة التفاعلية للأسباب */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-family: 'Amiri', serif;
+            color: var(--gold);
+            margin: 40px 0 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--accent-pink);
+            box-shadow: 0 12px 30px rgba(230, 57, 70, 0.3);
+        }
+
+        .card-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: rgba(230, 57, 70, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--rose-gold);
+            font-weight: bold;
+        }
+
+        .card h3 {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            margin: 15px 0 10px;
+        }
+
+        .card p {
+            color: #d8c4b6;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .card.expanded p {
+            display: block;
+            -webkit-line-clamp: initial;
+        }
+
+        .tap-hint {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--accent-pink);
+            font-weight: bold;
+        }
+
+        /* الجواب والسر */
+        .letter-section {
+            background: rgba(40, 20, 55, 0.8);
+            border: 2px solid var(--rose-gold);
+            border-radius: 25px;
+            padding: 35px;
+            margin: 50px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .letter-section h2 {
+            font-family: 'Amiri', serif;
+            color: var(--gold);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .letter-content {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            line-height: 2.1;
+            color: #fefae0;
+            text-align: justify;
+            white-space: pre-line;
+        }
+
+        .secret-box {
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.2), rgba(244, 162, 97, 0.2));
+            border: 1px dashed var(--gold);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .secret-box h3 {
+            color: var(--gold);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .secret-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* زر الإعجاب التفاعلي */
+        .love-btn-container {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .big-love-btn {
+            background: linear-gradient(45deg, var(--primary-red), var(--accent-pink));
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .big-love-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* انيميشن */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* تجاوب مع الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.1rem; }
+            .intro-text { font-size: 1.15rem; }
+            .letter-section { padding: 20px; }
+            .letter-content { font-size: 1.15rem; line-height: 1.9; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="hearts-container"></div>
+
+    <div class="container">
+        <!-- الهيدر والترحيب -->
+        <header>
+            <div class="date-badge">11 / 11 ❤️</div>
+            <h1>بحبك اوي يانور عيني 🥰❤️</h1>
+            <p class="intro-text">
+                النهاردة يوم مميز جداً بالنسبة ليا، حبيت أجمعلك فيه شوية حاجات من قلبي عشان أقولك أنتي قد إيه غالية عليا ومافيش منك في الدنيا كلها ❤️
+            </p>
+            <div class="divider"></div>
+        </header>
+
+        <!-- الأسباب 8 -->
+        <h2 class="section-title">حاجات بموت فيها فيكي 🥰</h2>
+        <div class="grid-container">
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-number">1</div>
+                <h3>ضحكتك الي بموتت فيها دي 🥰</h3>
+                <p>بعشق اوي بجد ضحكتك يابنتي والله اي وقت ببقا متدايق فيه والله بجد باعت ڤويسات ليكي وانت بتضحكي عندي برايڤت في الشات بتاعي بحببب اوي اقعد اسمعهم وببقا فرحان اوي بجد وبموت فيكي عموما ضحكتك بتسيح قلبي يارومي بجد ربنا يخليكي ليا ياقطتي.</p>
+                <span class="tap-hint">اضغطي للتحكم في النص ❤️</span>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-number">2</div>
+                <h3>طيبتك وحنيتك 🥰</h3>
+                <p>عشان انت يامريومة اطيب إنسانة قابلتها والله وأحن قلب شوفته صاحبتي وحبيبتي اوي بجد ديما حنينة عليا بحب اهتمامك بيا وبحبك وبحب وجودك.بجد قلبك أبيض وجميل اوييي والله وصافي ربنا يبعد عنه اي زعل وحزن واي وجع يامريومتي يارب ياحبيبي قبل ما يصيبك اي زعل يجي فيا قبليكي ويبعد عنك كل شر يامريومتي ويحفظك ليا ياحبيبي ويبعد عنك اي عين وحشة 🥰.</p>
+                <span class="tap-hint">اضغطي للتحكم في النص ❤️</span>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-number">3</div>
+                <h3>إنك نور عيني 😱❤️</h3>
+                <p>من اول يوم دخلتي فيه وانت نور عيني الي بشوف بيه بجد الس الدنيا بتنور ليا وهو معايا ومش بشوف فيها اي حلوة لو زعلانة مني عشان كدة بجد ديما فرحت مهمة بالنسبالي ياكتكوتة😱❤️.</p>
+                <span class="tap-hint">اضغطي للتحكم في النص ❤️</span>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-number">4</div>
+                <h3>نكدك وعندك🥰</h3>
+                <p>بحب نكدك اوي عموما بيدي يومي طعم وبهجة وبحبه اوي بجد وبحبك وانت بتدلعي وتتمايصي بتبقي كتكوتةةةة اوي بجد وبحبك وانت مهيبرة يالهوي بحسك مكسرات بجد وبحب عندك مع انه بيعصبني اوي بس بجد بحبه ربنا ما يحرمني منك ولا من اي حاجة فيكي.</p>
+                <span class="tap-hint">اضغطي للتحكم في النص ❤️</span>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-number">5</div>
+                <h3>حلاوتك ياوتكة😱❤️</h3>
+                <p>انك بقا مزة اويييييي بجددددد بعشقك وبعشق حلاوتك يامكنتي ياصاروخيييي يا هاتكة عرض قلبي بحلاوتك اقسم بالله.</p>
+                <span class="tap-hint">اضغطي للتحكم في النص ❤️</span>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-number">6</div>
+                <h3>ادريناليني😱</h3>
+                <p>يمكن مفهمتيش يعني ايه أدريناليني بس قصدي ان كلمة صغيرة منك تحفيز قادرة تملاني باور وطاقة وفرحة بجد أي حاجة صغيرة منك ياروحي قادرة بجد تخليني فرحان اوي ياميمي بحبك.</p>
+                <span class="tap-hint">اضغطي للتحكم في النص ❤️</span>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-number">7</div>
+                <h3>علاقتنا ب بعض ❤️</h3>
+                <p>علاقتنا ببعض اكتر علاقة بحبها اويييي لأن انت بالنسبالي كلل الدنيا بجد انت الناس والأهل والصحاب والحبايب والدنيا والمال والجمال وكل حاجة والله بحب انك واخدة عليا بحب سفالتنا سوا بحب هزارنا سوا بحب خناقنا اوي بحب لما نتصالح بحب لما نتعاتب بحب لما تعيطي واجي اصالحك عشان اعاكس فيكي وفي عيونك الي بتلمع زي الجوهرة وهي مدمعة بحبك اوي يامرمورة.</p>
+                <span class="tap-hint">اضغطي للتحكم في النص ❤️</span>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-number">8</div>
+                <h3>صوتك الي بيغسل قلبي من جوا ❤️</h3>
+                <p>بحب صوتك اوي عموما اجمل حاجة ممكن اسمعها ياقطتي ياحلوة انت.</p>
+                <span class="tap-hint">اضغطي للتحكم في النص ❤️</span>
+            </div>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- الجواب -->
+        <div class="letter-section">
+            <h2>جواب من قلبي ليكي 🥰❤️</h2>
+            <div class="letter-content">
+انا بقا يامريومة من اول مرة شوفتك فيها وانا بحبك اوي بحبك بشكل غريب مش مفهوم زي اكني كنت طفل وتايه ولقا اهله مسافر غريب ولقا ناس تفهمه انسان تايه ولقا بيته غريق ولقا عوامة بجد تعبان ولقا الدوا انت كنت اجمل حاجة حصلت دخلتي حياتي صلحتيلي قلبي صلحتيني انا شخصيا غيرتيني خلتيني انسان تاني بصمتك في حياة الي حواليكي ديما حلوة شبهك يامريومة عشان انت جميلة اوي وعشان انا بحبك اوي وعشان بجد بموت فيكي ومن غيرك مش هبقا انا مش هعرف افرح بجد هينقصني حاجات كتير يامريم معرفش حياتي من غير مريم معناها ايه ولا شكلها ازاي بس انت بجد والله جزء اساسي من حياتي مستعد ديما اجرب معاكي بدل المرة ميت الف مرة عشان ملناش غير بعض محدش هيقدر يستحمل دماغنا دي غيرنا يانور عيني محدش هيفهمني زيك ولا حد هيفهمك زيي مستحيل أعيش عمري ادور على حد زيك او شبهك عموما عشان مش هلاقي لأن انت مميزة اويييي بجد.
+
+انت ميزتك عن اي حد والله من اول يوم عرفتك فيه لغاية دلوقت وانا بحبك اوي وانا بموت فيكي وانا مش متخيل بكرة من غيرك وانا مش متخيل حياتي غير بيكي ومعاكي و ولادي منك وبيتي ريحتك وصوتك وحركتك فيه ولبسك معايا في دولاب واحد كدة ومدفيين بعض بجد بستنى اليوم ده كل يوم بتمنى الأيام والسنين تعدي بجد عشان اعيش معاكي اليوم ده يامريومة عشان فعلا بحبك اوي والله ومش عايز من الدنيا دي غيرك يامرمر قلبي ياروحيييي يا بسكوتي انت🥰❤️.
+            </div>
+        </div>
+
+        <!-- سر يوم 11/11 -->
+        <div class="secret-box">
+            <h3>سر يوم 11 / 11 😱❤️</h3>
+            <p>
+                مش سر ولا حاجة بس متبقي ٥ ايام ونتم ال ٢٧٠ يوم سوا ٩شهور سنة الا ٣ شهور بجد فرحانننن اوي يارب يانور عيني نتم مع بعض العمر كله لغاية ما نشيب ونكبر سوا ان شاء الله يامريومة قلبي ❤️
+            </p>
+        </div>
+
+        <!-- زر التفاعل -->
+        <div class="love-btn-container">
+            <button class="big-love-btn" onclick="sendLove()">دوسـي هنـا عشان يوصلك حبي 🥰❤️</button>
+        </div>
+    </div>
+
+    <script>
+        // بطاقات القلوب عند الضغط
+        function sendLove() {
+            for(let i=0; i<30; i++) {
+                setTimeout(() => {
+                    createHeart();
+                }, i * 50);
+            }
+            alert('بحبك اوي يا مريومة يا نور عيني! 🥰❤️');
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-particle');
+            heart.innerHTML = Math.random() > 0.5 ? '❤️' : '🥰';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            heart.style.fontSize = Math.random() * 1.5 + 1 + 'rem';
+            
+            document.getElementById('hearts-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // خلفية القلوب المتساقطة
+        setInterval(createHeart, 400);
+
+        // فتح وتكبير البطاقات
+        function toggleCard(card) {
+            card.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
